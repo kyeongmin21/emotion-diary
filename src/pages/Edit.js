@@ -1,11 +1,11 @@
-import {useNavigate, useSearchParams} from "react-router-dom";
+import {useSearchParams, useNavigate} from "react-router-dom";
 
 const Edit = () => {
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-
   const id = searchParams.get('id');
   const mode = searchParams.get('mode');
+
+  const navigate = useNavigate();
 
   return (
     <div className="Edit">
