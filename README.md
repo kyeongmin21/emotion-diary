@@ -7,6 +7,15 @@
 - SPA: Single Page Application (페이지가 하나 index.html만 반환함)
 - CSR: Client Side Rendering (클라이언트에서 페이지를 렌더링)
 
+### 2) Router V6
+- Router V6 : React 에서 CSR 기반의 페이지 라우팅을 할 수 있게 해주는 라이브러리
+- path Variable : useParams
+- Query String : useSearchParams
+- Page Moving : useNavigate
+
+
+
+
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
