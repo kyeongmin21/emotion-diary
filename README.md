@@ -10,7 +10,9 @@
 ### 2) Router V6
 - Router V6 : React 에서 CSR 기반의 페이지 라우팅을 할 수 있게 해주는 라이브러리
 - path Variable : useParams
-- Query String : useSearchParams
+- Query String : useSearchParams 
+  -  웹 페이지에 데이터를 전달하는 가장 간단한 방법
+  -  `/edit?id=10&mode=dark `
 - Page Moving : useNavigate
 
 
