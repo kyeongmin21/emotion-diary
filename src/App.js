@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Write from './pages/Write';
 import Edit from './pages/Edit';
 import Diary from './pages/Diary';
+import MyButton from "./components/MyButton";
 
 function App() {
   // 이미지 설정
@@ -16,11 +17,14 @@ function App() {
       <div className="App">
         <h2>App.js</h2>
 
-        <img src={process.env.PUBLIC_URL + `/assets/emotion1.png`} alt="이미지1"/>
-        <img src={process.env.PUBLIC_URL + `/assets/emotion2.png`} alt="이미지2"/>
-        <img src={process.env.PUBLIC_URL + `/assets/emotion3.png`} alt="이미지3"/>
-        <img src={process.env.PUBLIC_URL + `/assets/emotion4.png`} alt="이미지4"/>
-        <img src={process.env.PUBLIC_URL + `/assets/emotion5.png`} alt="이미지5"/>
+        <MyButton text={'버튼'}
+                  onClick={() => alert('버튼클릭')}
+                  type={'positive'}/>
+        <MyButton text={'버튼'}
+                  onClick={() => alert('버튼클릭')}
+                  type={'negative'}/>
+        <MyButton text={'버튼'}
+                  onClick={() => alert('버튼클릭')}/>
 
         <Routes>
           <Route path='/' element={<Home/>}/>
