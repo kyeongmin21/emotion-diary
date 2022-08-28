@@ -1,4 +1,4 @@
-import {useReducer, useRef} from 'react';
+import React, {useReducer, useRef} from 'react';
 
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
@@ -35,16 +35,20 @@ const reducer = (state, action) => {
   return newState;
 }
 
-function App() {
-  const [data, dispatch] = useReducer(reducer, [])
+export const DiaryStateContext = React.createContext();
+export const DiaryDispatchContenxt = React.createContext();
 
+function App() {
+  const [data, dispatch] = useReducer(reducer, []);
   const dataId = useRef(0);
+
   // CREATE
   const onCreate = (date, content, emotion) => {
     dispatch({
-      type: 'CREATE', data: {
+      type: 'CREATE',
+      data: {
         id: dataId.current,
-        data: new Date(date).getTime(),
+        date: new Date(date).getTime(),
         content,
         emotion
       }
@@ -59,27 +63,34 @@ function App() {
 
   // EDIT
   const onEdit = (targetId, date, content, emotion) => {
-    dispatch({type: 'EDIT', data: {
-      id: targetId,
+    dispatch({
+      type: 'EDIT',
+      data: {
+        id: targetId,
         date: new Date(date).getTime(),
         content,
         emotion
-      }})
+      }
+    })
   }
 
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/write' element={<Write/>}/>
-          <Route path='/edit' element={<Edit/>}/>
-          <Route path='/diary' element={<Diary/>}/>
-          <Route path='/diary/:id' element={<Diary/>}/>
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <DiaryStateContext.Provider value={data}>
+      <DiaryDispatchContenxt.Provider value={{onCreate, onRemove, onEdit}}>
+      <BrowserRouter>
+        <div className="App">
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/write' element={<Write/>}/>
+            <Route path='/edit' element={<Edit/>}/>
+            <Route path='/diary' element={<Diary/>}/>
+            <Route path='/diary/:id' element={<Diary/>}/>
+          </Routes>
+        </div>
+      </BrowserRouter>
+      </DiaryDispatchContenxt.Provider>
+    </DiaryStateContext.Provider>
   );
 }
 
