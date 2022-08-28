@@ -1,4 +1,4 @@
-import {useReducer} from 'react';
+import {useReducer, useRef} from 'react';
 
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
@@ -10,7 +10,7 @@ import Diary from './pages/Diary';
 
 const reducer = (state, action) => {
   let newState = [];
-  switch(action.type) {
+  switch (action.type) {
     case 'INIT': {
       return action.data;
     }
@@ -37,6 +37,36 @@ const reducer = (state, action) => {
 
 function App() {
   const [data, dispatch] = useReducer(reducer, [])
+
+  const dataId = useRef(0);
+  // CREATE
+  const onCreate = (date, content, emotion) => {
+    dispatch({
+      type: 'CREATE', data: {
+        id: dataId.current,
+        data: new Date(date).getTime(),
+        content,
+        emotion
+      }
+    })
+    dataId.current += 1
+  }
+
+  // REMOVE
+  const onRemove = (targetId) => {
+    dispatch({type: 'REMOVE', targetId})
+  }
+
+  // EDIT
+  const onEdit = (targetId, date, content, emotion) => {
+    dispatch({type: 'EDIT', data: {
+      id: targetId,
+        date: new Date(date).getTime(),
+        content,
+        emotion
+      }})
+  }
+
 
   return (
     <BrowserRouter>
