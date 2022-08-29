@@ -19,21 +19,27 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const firstDay = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth(),
-      1
-    ).getTime();
+    if (diaryList.length >= 1) {
+      const firstDay = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        1
+      ).getTime();
 
-    const lastDay = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth() + 1,
-      0
-    ).getTime();
-    console.log('1', new Date(firstDay))
-    console.log('2', new Date(lastDay))
-  }, [currentDate]);
+      const lastDay = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth() + 1,
+        0
+      ).getTime();
 
+      // 첫날과 마지막날 사이를 범위로 filtering 하면, 월을 알아 낼 수 있다!
+      setData(diaryList.filter(item => firstDay <= item.date && item.date <= lastDay));
+    }
+  }, [diaryList, currentDate]);
+
+  useEffect(() => {
+    console.log(data)
+  }, [data]);
 
   return (
     <div className="Home">
