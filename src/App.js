@@ -1,6 +1,5 @@
-import React, {useReducer, useRef} from 'react';
-
 import './App.css';
+import React, {useReducer, useRef} from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import Home from './pages/Home';
@@ -36,10 +35,18 @@ const reducer = (state, action) => {
 }
 
 export const DiaryStateContext = React.createContext();
-export const DiaryDispatchContenxt = React.createContext();
+export const DiaryDispatchContext = React.createContext();
+
+const dummyData = [
+  {id: 1, emotion: 1, content: '오늘의 일기 1번', date: 1661768228421},
+  {id: 2, emotion: 2, content: '오늘의 일기 2번', date: 1661768228422},
+  {id: 3, emotion: 3, content: '오늘의 일기 3번', date: 1661768228423},
+  {id: 4, emotion: 4, content: '오늘의 일기 4번', date: 1661768228424},
+  {id: 5, emotion: 5, content: '오늘의 일기 5번', date: 1661768228425},
+]
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, []);
+  const [data, dispatch] = useReducer(reducer, dummyData);
   const dataId = useRef(0);
 
   // CREATE
@@ -77,7 +84,7 @@ function App() {
 
   return (
     <DiaryStateContext.Provider value={data}>
-      <DiaryDispatchContenxt.Provider value={{onCreate, onRemove, onEdit}}>
+      <DiaryDispatchContext.Provider value={{onCreate, onRemove, onEdit}}>
         <BrowserRouter>
           <div className="App">
             <Routes>
@@ -89,7 +96,7 @@ function App() {
             </Routes>
           </div>
         </BrowserRouter>
-      </DiaryDispatchContenxt.Provider>
+      </DiaryDispatchContext.Provider>
     </DiaryStateContext.Provider>
   );
 }
