@@ -3,6 +3,7 @@ import {DiaryStateContext} from "../App";
 
 import MyHeader from "./../components/MyHeader";
 import MyButton from "./../components/MyButton";
+import DiaryList from "./../components/DiaryList";
 
 const Home = () => {
   const diaryList = useContext(DiaryStateContext);
@@ -48,6 +49,7 @@ const Home = () => {
         headText={headText}
         rightChild={<MyButton text={">"} onClick={inCreaseMonth}/>}
       />
+      <DiaryList diaryList={data}/>
     </div>
   );
 };
