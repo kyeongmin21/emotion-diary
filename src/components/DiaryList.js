@@ -5,6 +5,12 @@ const sortOptionList = [
   {value: "oldest", name: "오래된 순"},
 ]
 
+const filterOptionList = [
+  {value: "all", name: "전부다"},
+  {value: "good", name: "좋은 감정만"},
+  {value: "bad", name: "안좋은 감정만"},
+]
+
 const ControlMenu = ({value, onChange, optionList}) => {
   return (
     <select value={value}
@@ -17,6 +23,7 @@ const ControlMenu = ({value, onChange, optionList}) => {
 const DiaryList = ({diaryList}) => {
   // 정렬기준을 저장할 state
   const [sortType, setSortType] = useState('latest');
+  const [filter, setFilter] = useState('all');
 
   const getProcessedDiaryList = () => {
 
@@ -38,6 +45,9 @@ const DiaryList = ({diaryList}) => {
       <ControlMenu value={sortType}
                    onChange={setSortType}
                    optionList={sortOptionList}/>
+      <ControlMenu value={filter}
+                   onChange={setFilter}
+                   optionList={filterOptionList}/>
       {getProcessedDiaryList().map((item) => (
         <div key={item.id}>
           {item.content}

@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useReducer, useRef} from 'react';
+import React, {useReducer, useRef, useEffect} from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import Home from './pages/Home';
@@ -38,12 +38,12 @@ export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
 const dummyData = [
-  {id: 1, emotion: 1, content: '오늘의 일기 1번', date: 1661768228421},
-  {id: 2, emotion: 2, content: '오늘의 일기 2번', date: 1661768228422},
-  {id: 3, emotion: 3, content: '오늘의 일기 3번', date: 1661768228423},
-  {id: 4, emotion: 4, content: '오늘의 일기 4번', date: 1661768228424},
-  {id: 5, emotion: 5, content: '오늘의 일기 5번', date: 1661768228425},
-  {id: 6, emotion: 2, content: '오늘의 일기 7번', date: 1761768228425},
+  {id: 1, emotion: 1, content: '오늘의 일기 1번', date: 1662374745071},
+  {id: 2, emotion: 2, content: '오늘의 일기 2번', date: 1662374745072},
+  {id: 3, emotion: 3, content: '오늘의 일기 3번', date: 1662374745073},
+  {id: 4, emotion: 4, content: '오늘의 일기 4번', date: 1662374745074},
+  {id: 5, emotion: 5, content: '오늘의 일기 5번', date: 1662374745075},
+  {id: 6, emotion: 2, content: '오늘의 일기 7번', date: 1662374745076},
 ]
 
 function App() {
@@ -52,6 +52,7 @@ function App() {
 
   // CREATE
   const onCreate = (date, content, emotion) => {
+
     dispatch({
       type: 'CREATE',
       data: {

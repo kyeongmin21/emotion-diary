@@ -38,10 +38,6 @@ const Home = () => {
     }
   }, [diaryList, currentDate]);
 
-  useEffect(() => {
-    console.log(data)
-  }, [data]);
-
   return (
     <div className="Home">
       <MyHeader
