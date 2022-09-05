@@ -27,6 +27,14 @@ const DiaryList = ({diaryList}) => {
 
   const getProcessedDiaryList = () => {
 
+    const filterCallBack = (item) => {
+      if (filter === 'good') {
+        return parseInt(item.emotion) <= 3;
+      } else {
+        return parseInt(item.emotion) > 3;
+      }
+    }
+
     // 객체로 이루어진 배열 : [ {}, {}, {} ]
     // 그냥 정렬하면 정렬이 안됨. 그래서 비교함수를 만들어 줘야함
     const compare = (a, b) => {
@@ -37,7 +45,9 @@ const DiaryList = ({diaryList}) => {
       }
     }
     const copyList = JSON.parse(JSON.stringify(diaryList));
-    return copyList.sort(compare);
+    const filteredList = filter === 'all' ? copyList : copyList.filter((item) => filterCallBack(item));
+    const sortedList = filteredList.sort(compare);
+    return sortedList;
   }
 
   return (
@@ -49,9 +59,7 @@ const DiaryList = ({diaryList}) => {
                    onChange={setFilter}
                    optionList={filterOptionList}/>
       {getProcessedDiaryList().map((item) => (
-        <div key={item.id}>
-          {item.content}
-        </div>
+        <div key={item.id}>{item.content} {item.emotion}</div>
       ))}
     </div>
   );
