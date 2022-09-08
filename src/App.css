@@ -168,3 +168,8 @@ header button {
 .DiaryItem .diary_content_preview {
   font-size: 18px;
 }
+
+.DiaryItem .btn_wrapper {
+  /* 화면이 줄어도 작아지지 않게 */
+  min-width: 70px;
+}
