@@ -21,8 +21,8 @@ const DiaryEditor = () => {
       <div>
         <section>
           <h4>오늘은 언제인가요?</h4>
-          <div className="input-box">
-            <input className="input-date"
+          <div className="input_box">
+            <input className="input_date"
                    type="date"
                    value={date}
                    onChange={(e) => setDate(e.target.value)} />
