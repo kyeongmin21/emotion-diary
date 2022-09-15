@@ -3,6 +3,7 @@ import {useState} from "react";
 
 import MyHeader from "./MyHeader";
 import MyButton from "./MyButton";
+import EmotionItem from "./EmotionItem"
 
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
@@ -43,7 +44,8 @@ const DiaryEditor = () => {
           <h4>오늘의 감정</h4>
           <div className="input_box emotion_list_wrapper">
             {emotionList.map(item => (
-              <div key={item.emotion_id}>{item.emotion_description}</div>
+              // <div key={item.emotion_id}>{item.emotion_description}</div>
+              <EmotionItem key={item.emotion_id} {...item} />
             ))}
           </div>
         </section>
