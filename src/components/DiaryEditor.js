@@ -42,7 +42,7 @@ const DiaryEditor = () => {
             <input className="input_date"
                    type="date"
                    value={date}
-                   onChange={(e) => setDate(e.target.value)} />
+                   onChange={(e) => setDate(e.target.value)}/>
           </div>
         </section>
         <section>
@@ -51,9 +51,9 @@ const DiaryEditor = () => {
             {emotionList.map(item => (
               // <div key={item.emotion_id}>{item.emotion_description}</div>
               <EmotionItem
-                key={item.emotion_id}웃
+                key={item.emotion_id} 웃
                 {...item}
-                onClick={handleClickEmote} />
+                onClick={handleClickEmote}/>
             ))}
           </div>
         </section>
