@@ -25,7 +25,7 @@ const DiaryEditor = () => {
   const navigate = useNavigate();
 
   const [emotion, setEmotion] = useState(3);
-  const handleClickEmote = () => {
+  const handleClickEmote = (emotion) => {
     setEmotion(emotion);
   }
 
@@ -51,9 +51,10 @@ const DiaryEditor = () => {
             {emotionList.map(item => (
               // <div key={item.emotion_id}>{item.emotion_description}</div>
               <EmotionItem
-                key={item.emotion_id} 웃
+                key={item.emotion_id}
                 {...item}
-                onClick={handleClickEmote}/>
+                onClick={handleClickEmote}
+                isSelected={item.emotion_id === emotion}/>
             ))}
           </div>
         </section>
