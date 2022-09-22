@@ -263,3 +263,9 @@ header button {
   background-color: #ececec;
   padding: 20px;
 }
+
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
