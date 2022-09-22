@@ -92,7 +92,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/write' element={<Write/>}/>
-              <Route path='/edit' element={<Edit/>}/>
+              <Route path='/edit/:id' element={<Edit/>}/>
               <Route path='/diary' element={<Diary/>}/>
               <Route path='/diary/:id' element={<Diary/>}/>
             </Routes>
