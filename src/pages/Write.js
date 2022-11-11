@@ -1,9 +1,8 @@
-import DiaryEditor from "../components/DiaryEditor";
-
 const Write = () => {
+
   return (
     <div className="Write">
-      <DiaryEditor/>
+      <h2>Write</h2>
     </div>
   )
 }
