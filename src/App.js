@@ -18,6 +18,7 @@ function App() {
           <Route path="/"      element={<Home/>}  />
           <Route path="/write" element={<Write/>} />
           <Route path="/edit"  element={<Edit/>}  />
+          <Route path="/diary/:id" element={<Diary/>} />
           <Route path="/diary" element={<Diary/>} />
         </Routes>
       </div>

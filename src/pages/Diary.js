@@ -1,4 +1,8 @@
+import {useParams} from 'react-router-dom';
+
 const Diary = () => {
+  const {id} = useParams();
+  console.log('Diary.js id : ', id);
 
   return (
     <div className="Diary">
