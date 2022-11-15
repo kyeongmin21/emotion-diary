@@ -70,6 +70,7 @@ header button {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
+  font-size: 18px;
   white-space: nowrap;
   font-family: "Nanum Pen Script", cursive;
 }
