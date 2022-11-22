@@ -16,7 +16,8 @@
 - Page Moving : useNavigate
 
 
-
+### 페이지 구현 - 홈(/)
+- 헤더 부분 : 왼쪽 버튼, 현재 년&월, 오른쪽 버튼 
 
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
