@@ -13,7 +13,7 @@
 - Query String : useSearchParams 
   -  웹 페이지에 데이터를 전달하는 가장 간단한 방법
   -  `/edit?id=10&mode=dark `
-- Page Moving : useNavigate
+- Page Moving : useNavigate (ex 로그인 안한 user가 마이페이지로 접근하려고 할 때, 로그인페이지로 이동 시키기)
 
 
 ### 페이지 구현 - 홈(/)
