@@ -106,7 +106,7 @@ header button {
   width: 100%;
 }
 
-.DiaryList .ControlMenu {
+.DiaryList select {
   margin-right: 10px;
   border: none;
   border-radius: 5px;
