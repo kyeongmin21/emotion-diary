@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MyHeader from "components/MyHeader";
 import MyButton from "components/MyButton";
 
@@ -7,13 +7,14 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 }
 
-const Write = () => {
+const DiaryEditor = () => {
   const navigate = useNavigate();
   const [date, setDate] = useState(getStringDate(new Date()));
 
   return (
-    <div className="Write">
-      <MyHeader leftChild={<MyButton text={'뒤로가기'} onClick={() => navigate('/')}/>}
+    <div className="DiaryEditor">
+      <MyHeader leftChild={<MyButton text={'뒤로가기'}
+                                     onClick={() => navigate(-1)}/>}
                 headText={'새 일기쓰기'} />
 
       <div>
@@ -31,4 +32,4 @@ const Write = () => {
   )
 }
 
-export default Write;
+export default DiaryEditor();
