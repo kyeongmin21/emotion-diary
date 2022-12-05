@@ -1,35 +1,30 @@
-import './App.css';
+import React, {useRef, useReducer} from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import React, {useRef} from 'react';
+
+import './App.css';
 import Diary from 'pages/Diary';
 import Edit from 'pages/Edit';
 import Home from 'pages/Home';
 import Write from 'pages/Write';
-import {useReducer} from "react";
 
 const reducer = (state, action) => {
-  let newState = [];
-
   switch (action.type) {
     case 'INIT': {
       return action.data
     }
     case 'CREATE': {
-      newState = [action.data, ...state];
-      break;
+      console.log('create')
+      return [action.data, ...state];
     }
     case 'DELETE': {
-      newState = state.filter(item => item.id !== action.targetId);
-      break;
+      return state.filter(item => item.id !== action.targetId);
     }
     case 'EDIT': {
-      newState = state.map(item => item.id !== action.data.id ? {...action.data} : item)
+      return state.map(item => item.id === action.data.id ? {...action.data} : item)
     }
     default :
       return state
   }
-
-  return newState;
 }
 
 export const DiaryStateContext = React.createContext();
@@ -41,6 +36,8 @@ const dummyData = [
   { id: 3, emotion: 3, content: '오늘일기3', date: 1669200621035 },
   { id: 4, emotion: 4, content: '오늘일기4', date: 1669200621036 },
   { id: 5, emotion: 5, content: '오늘일기5', date: 1669200621037 },
+  { id: 6, emotion: 3, content: '월요일', date: 1670246708910 },
+  { id: 7, emotion: 2, content: '브라질전', date: 1670246708911 },
 ]
 
 
@@ -79,17 +76,17 @@ function App() {
   return (
     <DiaryStateContext.Provider value={data}>
       <DiaryDispatchContext.Provider value={{onCreate, onDelete, onEdit}}>
-      <BrowserRouter>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/write" element={<Write/>}/>
-            <Route path="/edit/:id" element={<Edit/>}/>
-            <Route path="/diary/:id" element={<Diary/>}/>
-            <Route path="/diary" element={<Diary/>}/>
-          </Routes>
-        </div>
-      </BrowserRouter>
+        <BrowserRouter>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/write" element={<Write/>}/>
+              <Route path="/edit/:id" element={<Edit/>}/>
+              <Route path="/diary/:id" element={<Diary/>}/>
+              <Route path="/diary" element={<Diary/>}/>
+            </Routes>
+          </div>
+        </BrowserRouter>
       </DiaryDispatchContext.Provider>
     </DiaryStateContext.Provider>
   );
