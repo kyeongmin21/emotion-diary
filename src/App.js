@@ -36,8 +36,8 @@ const dummyData = [
   { id: 3, emotion: 3, content: '오늘일기3', date: 1669200621035 },
   { id: 4, emotion: 4, content: '오늘일기4', date: 1669200621036 },
   { id: 5, emotion: 5, content: '오늘일기5', date: 1669200621037 },
-  { id: 6, emotion: 3, content: '월요일', date: 1670246708910 },
-  { id: 7, emotion: 2, content: '브라질전', date: 1670246708911 },
+  { id: 6, emotion: 3, content: '12월일기1', date: 1670246708910 },
+  { id: 7, emotion: 2, content: '12월일기2', date: 1670246708911 },
 ]
 
 

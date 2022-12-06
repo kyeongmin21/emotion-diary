@@ -1,4 +1,4 @@
-import {useContext, useState, useRef} from "react";
+import {useContext, useState, useRef, useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
 import MyHeader from "components/MyHeader";
 import MyButton from "components/MyButton";
@@ -39,6 +39,14 @@ const DiaryEditor = ({isEdit, selectData}) => {
     }
     navigate('/', {replace: true});
   }
+
+  useEffect(() => {
+    if (isEdit) {
+      setDate(getStringDate(new Date(parseInt(selectData.date))));
+      setEmotion(selectData.emotion);
+      setContent(selectData.content);
+    }
+  }, [isEdit, selectData])
 
   return (
     <div className="DiaryEditor">
