@@ -13,8 +13,12 @@ const Edit = () => {
   useEffect(() => {
     if (diaryList.length >= 1) {
       const targetDiary = diaryList.find(item => parseInt(item.id) === parseInt(id));
-      if (targetDiary) setSelectData(targetDiary)
-      else navigate('/', {replace: true}) // 뒤로가기 못하도록 처리
+      if (targetDiary) {
+        setSelectData(targetDiary)
+      } else {
+        alert('없는 일기입니다');
+        navigate('/', {replace: true}) // 뒤로가기 못하도록 처리
+      }
     }
   }, [id, diaryList]);
 
