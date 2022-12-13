@@ -13,7 +13,6 @@ const reducer = (state, action) => {
       return action.data
     }
     case 'CREATE': {
-      console.log('create')
       return [action.data, ...state];
     }
     case 'DELETE': {
@@ -43,7 +42,7 @@ const dummyData = [
 
 function App() {
   const [data, dispatch] = useReducer(reducer, dummyData);
-  const dataId = useRef(0);
+  const dataId = useRef(8);
 
   const onCreate = (date, content, emotion) => {
     dispatch({
