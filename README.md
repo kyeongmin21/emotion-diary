@@ -95,3 +95,7 @@
 - `App.js` : dataId 의 useRef(6) 초깃값을 6으로 셋팅, 왜냐하면 dummyData 에서 id가 5까지 되어 있으므로
 - 오타 수정
 - `Home.js` lastDay에 시, 분, 초 그날의 끝인 시간까지 써주어야 한다.
+
+
+## LocalStorage 를 일기 데이터베이스로 사용하기
+

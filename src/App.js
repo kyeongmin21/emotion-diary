@@ -1,4 +1,4 @@
-import React, {useRef, useReducer} from 'react';
+import React, {useRef, useReducer, useEffect} from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import './App.css';
@@ -41,6 +41,14 @@ const dummyData = [
 
 
 function App() {
+
+  useEffect(() => {
+    localStorage.setItem('jin', 31);
+    localStorage.setItem('min', '31');
+    localStorage.setItem('gi', JSON.stringify({ value: 30 }));
+  }, []);
+
+
   const [data, dispatch] = useReducer(reducer, dummyData);
   const dataId = useRef(8);
 
