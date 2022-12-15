@@ -96,6 +96,9 @@
 - 오타 수정
 - `Home.js` lastDay에 시, 분, 초 그날의 끝인 시간까지 써주어야 한다.
 
-
-## LocalStorage 를 일기 데이터베이스로 사용하기
+## LocalStorage를 일기 데이터베이스로 사용하기
+- `localStorage.setItem('key', 10)` : 데이터 저장
+- `localStorage.getItem('key)` : 데이터 가져오기
+-  `DiaryEditor.js` : 삭제하기 버튼 추가
+- `App.js` : mount될 때, localStorage 값을 꺼내서 data state 기초값으로 사용
 
