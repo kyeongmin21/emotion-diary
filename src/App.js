@@ -45,7 +45,15 @@ function App() {
   useEffect(() => {
     localStorage.setItem('jin', 31);
     localStorage.setItem('min', '31');
+    // 객체로 넣으면 [object object] 로 출력되므로, 문자열 형태로 바꿔서 넣어줘야 한다.
     localStorage.setItem('gi', JSON.stringify({ value: 30 }));
+
+    const jin = localStorage.getItem('jin')
+    const min = localStorage.getItem('min')
+    const obj = JSON.parse(localStorage.getItem('gi')) // 객체로 꺼내오기
+    // {jin: '31', min: '31'} 객체로 출력된다.
+    // console.log({jin, min, obj})
+    console.log(jin, min, obj)
   }, []);
 
 

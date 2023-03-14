@@ -98,4 +98,8 @@
 
 
 ## LocalStorage 를 일기 데이터베이스로 사용하기
-
+- 브라우저에 key-value 값을 Storage에 저장할 수 있다.
+- setItem() - key, value 추가
+- getItem() - value 읽어 오기
+- 로컬스토리지에 저장되는 값들은 기본적으로 문자열로 바껴서 저장된다. (나올때도 동일)
+  
