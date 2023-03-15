@@ -42,23 +42,32 @@ const dummyData = [
 
 function App() {
 
-  useEffect(() => {
-    localStorage.setItem('jin', 31);
-    localStorage.setItem('min', '31');
-    // 객체로 넣으면 [object object] 로 출력되므로, 문자열 형태로 바꿔서 넣어줘야 한다.
-    localStorage.setItem('gi', JSON.stringify({ value: 30 }));
+//   useEffect(() => {
+//     localStorage.setItem('jin', 31);
+//     localStorage.setItem('min', '31');
+//     // 객체로 넣으면 [object object] 로 출력되므로, 문자열 형태로 바꿔서 넣어줘야 한다.
+//     localStorage.setItem('gi', JSON.stringify({ value: 30 }));
 
-    const jin = localStorage.getItem('jin')
-    const min = localStorage.getItem('min')
-    const obj = JSON.parse(localStorage.getItem('gi')) // 객체로 꺼내오기
-    // {jin: '31', min: '31'} 객체로 출력된다.
-    // console.log({jin, min, obj})
-    console.log(jin, min, obj)
-  }, []);
+//     const jin = localStorage.getItem('jin')
+//     const min = localStorage.getItem('min')
+//     const obj = JSON.parse(localStorage.getItem('gi')) // 객체로 꺼내오기
+//     // {jin: '31', min: '31'} 객체로 출력된다.
+//     // console.log({jin, min, obj})
+//     console.log(jin, min, obj)
+//   }, []);
 
 
   const [data, dispatch] = useReducer(reducer, dummyData);
   const dataId = useRef(8);
+  
+    useEffect(() => {
+    const localData = localStorage.getItem('diary');
+    if (localData) {
+      const diaryList = JSON.parse(localData).sort((a, b) => parseInt(b.id) - parseInt(a.id)); // 내림차순으로 정렬
+      dataId.current = parseInt(diaryList[0].id) + 1 // 0번째의 id가 가장 클 숫자일테니 그다음 숫자를 부여한다.
+      dispatch({type: 'INIT', data: diaryList});
+    }
+  }, [])
 
   const onCreate = (date, content, emotion) => {
     dispatch({
