@@ -49,8 +49,7 @@ const DiaryEditor = ({isEdit, selectData}) => {
 
   return (
     <div className="DiaryEditor">
-      <MyHeader leftChild={<MyButton text={'뒤로가기'}
-                                     onClick={() => navigate(-1)}/>}
+      <MyHeader leftChild={<MyButton text={'뒤로가기'} onClick={() => navigate(-1)}/>}
                 headText={isEdit ? '수정하기' :  '새 일기쓰기'} 
                 rightChild={isEdit && <MyButton text={'삭제하기'} type={'negative'} onClick={handleDelete}/>}/>
 
