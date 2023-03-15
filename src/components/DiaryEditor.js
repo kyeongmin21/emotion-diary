@@ -32,6 +32,13 @@ const DiaryEditor = ({isEdit, selectData}) => {
     navigate('/', {replace: true});
   }
 
+    const handleDelete = () => {
+    if (window.confirm('삭제 하시겠습니까?')) {
+      onDelete(selectData.id);
+      navigate('/', {replace: true});
+    }
+  }
+  
   useEffect(() => {
     if (isEdit) {
       setDate(getStringDate(new Date(parseInt(selectData.date))));
@@ -44,7 +51,8 @@ const DiaryEditor = ({isEdit, selectData}) => {
     <div className="DiaryEditor">
       <MyHeader leftChild={<MyButton text={'뒤로가기'}
                                      onClick={() => navigate(-1)}/>}
-                headText={isEdit ? '수정하기' :  '새 일기쓰기'} />
+                headText={isEdit ? '수정하기' :  '새 일기쓰기'} 
+                rightChild={isEdit && <MyButton text={'삭제하기'} type={'negative'} onClick={handleDelete}/>}/>
 
       <div>
         <section>
