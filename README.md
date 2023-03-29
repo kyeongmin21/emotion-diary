@@ -104,14 +104,6 @@
 - 로컬스토리지에 저장되는 값들은 기본적으로 문자열로 바껴서 저장된다. (나올때도 동일)
 
 
-일기 리스트
-![image](https://user-images.githubusercontent.com/66239952/228396941-c1c464f8-0e3e-48b4-9ba2-18b68e4a6a08.png)
 
-일기 쓰기
-![image](https://user-images.githubusercontent.com/66239952/228396991-70925b7b-eaf0-4b69-a0f9-290debcc621e.png)
+  ![일기장](https://user-images.githubusercontent.com/66239952/228397526-e92b8d1b-9ea1-421b-91a6-de05470fd323.jpg)
 
-일기 수정 및 삭제
-![image](https://user-images.githubusercontent.com/66239952/228397027-0a5240ff-457a-4d49-a9b2-1eb9ca3be916.png)
-
-
-  
