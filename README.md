@@ -1,4 +1,7 @@
 # Emotion Diary
+![일기장](https://user-images.githubusercontent.com/66239952/228397526-e92b8d1b-9ea1-421b-91a6-de05470fd323.jpg)
+  
+  
 ## 페이지 라우팅 1 - React Router 기본
 - npm i react-router-dom@6 설치
 - import BrowserRouter
@@ -105,5 +108,5 @@
 
 
 
-  ![일기장](https://user-images.githubusercontent.com/66239952/228397526-e92b8d1b-9ea1-421b-91a6-de05470fd323.jpg)
+
 
