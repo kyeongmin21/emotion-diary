@@ -9,7 +9,7 @@ import {emotionList} from 'util/emotion';
 
 
 const DiaryEditor = ({isEdit, selectData}) => {
-  const {onCreate, onEdit} = useContext(DiaryDispatchContext);
+  const {onCreate, onDelete, onEdit} = useContext(DiaryDispatchContext);
   const contentRef = useRef();
   const navigate = useNavigate();
 
