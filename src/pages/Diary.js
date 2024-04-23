@@ -16,10 +16,8 @@ const Diary = () => {
     if (diaryList.length >= 1) {
       const targetDiary = diaryList.find(item => parseInt(item.id) === parseInt(id));
       if (targetDiary) {
-        // 일기가 존재 할 때
         setData(targetDiary);
       } else {
-        // 일기가 없을 때 index page로
         alert('없는 일기입니다');
         navigate('/', {replace: true});
       }
@@ -55,9 +53,6 @@ const Diary = () => {
       </div>
     )
   }
-
-
-
 }
 
 export default Diary;
